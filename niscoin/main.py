@@ -125,7 +125,7 @@ if __name__ == "__main__":
     logger.addHandler(handler)
     logging.basicConfig(
         format="%(asctime)s - %(name)s - %(levelname)s - %(message)s",
-        level=logger.info,
+        level=logging.INFO,
     )
 
     main()
