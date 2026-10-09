@@ -70,14 +70,12 @@ def main():
         logger.error(f"[-] Error: {e}")
         exit(1)
 
+
     if config_data.persistence_type == PersistenceType.PICKLE:
-        if not os.path.isdir(args.database):
-            logger.error("[-] Database directory not found.")
-            exit(1)
-        else:
-            config_data.set_pickle_directory(
-                os.path.join(os.path.abspath(args.database), "data.db")
-            )
+        os.makedirs(args.database, exist_ok=True)
+        config_data.set_pickle_directory(
+            os.path.join(os.path.abspath(args.database), "data.db")
+        )
             logger.info(f"[+] Pickle directory set to {config_data.pickle_path}")
 
     elif config_data.persistence_type == PersistenceType.POSTGRES:
