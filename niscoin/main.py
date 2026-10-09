@@ -76,7 +76,7 @@ def main():
         config_data.set_pickle_directory(
             os.path.join(os.path.abspath(args.database), "data.db")
         )
-            logger.info(f"[+] Pickle directory set to {config_data.pickle_path}")
+        logger.info(f"[+] Pickle directory set to {config_data.pickle_path}")
 
     elif config_data.persistence_type == PersistenceType.POSTGRES:
         try:
